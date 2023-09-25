@@ -1,5 +1,11 @@
 const { Router } = require("express");
+const driversRouter = require("./driversRouter");
+const teamsRouter = require("./teamsRouter");
 
-const router = Router();
+const mainRouter = Router();
 
-module.exports = router;
+mainRouter.use("/drivers", driversRouter);
+mainRouter.use("/teams", teamsRouter);
+
+
+module.exports = mainRouter;
