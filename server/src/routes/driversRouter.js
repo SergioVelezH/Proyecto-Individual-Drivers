@@ -8,7 +8,6 @@ const driversRouter = Router();
 
 driversRouter.get("/", getAllDriversHandler);
 driversRouter.get("/:id", getDriverByIdHandler);
-driversRouter.get("/name?", getFirtsDriversHandler);
 driversRouter.post("/", postNewDriverHandler);
 
 
