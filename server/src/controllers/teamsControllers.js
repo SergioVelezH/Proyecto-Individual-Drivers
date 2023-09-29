@@ -1,33 +1,66 @@
 const axios = require("axios");
 const { Escuderia } = require("../db");
-const { where } = require("sequelize");
+
 
 
 module.exports = getTeams = async () => {
     
+    // const response = (await axios.get("http://localhost:5000/drivers/")).data;
+    // const infoApi = response.flatMap((driver) => driver.teams ? driver.teams.split(',') : []);
 
-    const response = (await axios.get("http://localhost:5000/drivers/")).data;
-    const infoApi = response.flatMap((driver) => driver.teams ? driver.teams.split(',') : []);
+    // const dataBase = Escuderia.bulkCreate(infoApi.map((team) => ({ name: team })));
 
-
-
-    // const infoApi = response.filter((driver) => {if(driver.teams){return driver.teams }});
-
-    // const teams = infoApi.map((elem) => elem.split(","));
-
-    // const arr = teams.map((elem) => {if(!allTeams.includes(elem))allTeams.push(elem)} )
-
-    // const dataBase = infoApi.map((elem) => Escuderia.create({name:elem}))
+    // return dataBase;
 
 
-    // const name = "HOLA"
 
-    // const dataBase = Escuderia.create({name});
-
-    const dataBase = Escuderia.bulkCreate(infoApi.map((team) => ({ name: team })));
-
-    return dataBase;
+    // const response = (await axios.get("http://localhost:5000/drivers")).data;
+    // const teamsSet = new Set(); // Conjunto para llevar un registro de equipos agregados
     
+    // for (const driver of response) {
+    //   if (driver.teams) {
+    //     const teams = driver.teams.split(',');
+        
+    //     // Recorre los equipos del conductor
+    //     for (const team of teams) {
+    //       // Verifica si el equipo ya se ha agregado a la BD
+    //       if (!teamsSet.has(team)) {
+    //         // Agrega el equipo a la BD
+    //         await Escuderia.create({ name: team });
+    //         teamsSet.add(team); // Agrega el equipo al conjunto
+    //       }
+    //     }
+    //   }
+    // }
+
+    // console.log('Equipos agregados con éxito.');
+    // return 'Proceso completado';
+
+    const response = (await axios.get("http://localhost:5000/drivers")).data;
+    const teamsSet = new Set(); // Conjunto para llevar un registro de equipos agregados
+
+for (const driver of response) {
+  if (driver.teams) {
+    const teams = driver.teams.split(',');
+    
+    // Recorre los equipos del conductor
+    for (const team of teams) {
+      // Elimina los espacios en blanco del equipo
+      const teamTrimmed = team.trim();
+      // Verifica si el equipo ya se ha agregado a la BD
+      if (!teamsSet.has(teamTrimmed)) {
+        // Agrega el equipo a la BD
+        await Escuderia.create({ name: teamTrimmed });
+        teamsSet.add(teamTrimmed); // Agrega el equipo al conjunto
+      }
+    }
+  }
+}
+
+
+return 'Proceso completado';
+
+
 
 };
 
