@@ -1,14 +1,17 @@
-import { useState } from 'react'
+
+import { Link } from "react-router-dom";
 import './card.css'
 
-function Card() {
-  
+function Card({driver}) {
+  const {id,name,image,teams} = driver;
 
   return (
     <div className='card-container'>
-      <h1>Name : Sergio</h1>
-      <p>Age: 21</p>
-      <p>Description: Crack</p>
+      <Link to={`/home/${id}`}>
+      <h2>{name}</h2>
+      <p>{teams}</p>
+      <img className='img'src={image} alt={name} />    
+      </Link>
     </div>
   )
 }

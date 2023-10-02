@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import './navbar.css'
 
-function Navbar() {
+function Navbar({handleChange, handleSubmit}) {
   
 
   return (
     <div className='search-box'>
-      <form>
-        <input placeholder='Search...' />
-        <button>Search</button>
+      <form onChange={handleChange}>
+        <input placeholder='Search...' type='search' />
+        <button type='submit' onClick={handleSubmit} >
+          Search
+        </button>
       </form>
     </div>
   )
