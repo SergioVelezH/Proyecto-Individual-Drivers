@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
 
 import { validar } from '../../helpers/validations';
 import './form.css'
+import { createNewDriver } from '../../redux/actions';
 
 function Form() {
-
-
+    const dispatch = useDispatch();
     const [input, setInput] = useState({
        name:"",
        lastName:"",
@@ -32,6 +33,11 @@ function handleChange(event) {
         });
     setErrors(validar({...input, [event.target.name]: event.target.value}))
     };
+
+function handleSubmit(event){
+    event.preventDefault();
+    dispatch(createNewDriver(input));
+}    
 
 
 
@@ -72,7 +78,7 @@ function handleChange(event) {
         {errors.name||errors.lastName||errors.description||errors.image||errors.nationality||errors.birthDate 
         ? 
         null :
-        <button type='submit'>Submit</button> }
+        <button type='submit' onClick={handleSubmit}>Submit</button> }
 
       </form>
     </div>
