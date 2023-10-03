@@ -5,7 +5,6 @@ const infoCleaner = (arr) => {
         return{
             id:user.id,
             name:`${user.name.forename} ${user.name.surname}`,
-            // lastName:user.name.surname,
             description:user.description,
             image:user.image.url,
             nationality:user.nationality,

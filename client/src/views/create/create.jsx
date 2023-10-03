@@ -7,7 +7,7 @@ function Create() {
 
   return (
     <div>
-      <h2>Create your Driver!</h2>
+      <h1>Create your Driver!</h1>
       <Form/>
     </div>
   )

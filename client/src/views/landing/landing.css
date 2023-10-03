@@ -1,5 +1,8 @@
 body{
     background-image: url("https://wallpaper.dog/large/20502163.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .global{

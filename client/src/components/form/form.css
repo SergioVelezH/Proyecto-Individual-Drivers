@@ -1,10 +1,10 @@
 .form-container {
     max-width: 600px;
     margin:  auto;
-    padding: 20px;
+    padding: 100px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: rgba(109, 103, 103, 0.95);
   }
   
   form {
@@ -17,6 +17,7 @@
   }
   
   label {
+    size: 10px;
     font-weight: bold;
     padding: 5px;
   }
@@ -39,7 +40,7 @@
   }
   
   span {
-    width: 100%;
+    width: 50%;
     color: red;
     font-size: 14px;
   }

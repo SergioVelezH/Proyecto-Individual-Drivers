@@ -18,7 +18,6 @@ function Detail() {
   },[id])
  
 
-
   return (
     <div>
       <Point driver = {driver}/>
@@ -27,3 +26,4 @@ function Detail() {
 }
 
 export default Detail;
+
