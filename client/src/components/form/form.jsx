@@ -25,6 +25,11 @@ function Form() {
         birthDate: "",
      })
 
+     const [msg, setMsg] = useState({
+        name:false,
+        msg:''
+     })
+
 
 function handleChange(event) {
     setInput({
@@ -36,8 +41,14 @@ function handleChange(event) {
 
 function handleSubmit(event){
     event.preventDefault();
-    dispatch(createNewDriver(input));
-}    
+    const response = dispatch(createNewDriver(input));
+        if(response){
+            setMsg({
+                name:true,
+                msg:'El driver ha sido creado con éxito'
+            })
+        }
+    };
 
 
 
@@ -79,7 +90,7 @@ function handleSubmit(event){
         ? 
         null :
         <button type='submit' onClick={handleSubmit}>Submit</button> }
-
+        {msg.name && <span>{msg.msg}</span>}
       </form>
     </div>
   )

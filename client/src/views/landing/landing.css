@@ -1,0 +1,23 @@
+body{
+    background-image: url("https://wallpaper.dog/large/20502163.jpg");
+}
+
+.global{
+    padding: 50px;
+    background-color: rgba(158, 147, 147, 0.7) ;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.boton{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton:hover {
+    background-color: #61666b;
+  }

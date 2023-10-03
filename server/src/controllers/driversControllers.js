@@ -60,6 +60,8 @@ const getDriverById = async(id,source) => {
         source === "api"
             ? (await axios.get(`http://localhost:5000/drivers/${id}`)).data 
             : await Driver.findByPk(id);
+
+    // const driver = infoCleaner(info);
     return driver;         
 };
 
@@ -68,8 +70,6 @@ const getDriverById = async(id,source) => {
 const postNewDriver = async (name,lastName,description,image,nationality,birthDate) => {
 
     return await Driver.create({name,lastName,description,image,nationality,birthDate});
-   
-
    
 };
 

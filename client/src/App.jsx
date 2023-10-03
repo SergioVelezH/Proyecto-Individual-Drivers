@@ -12,6 +12,7 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path="/" Component={Landing}/>
         <Route exact path="/home" Component={Home}/>
         <Route path="/home/:id" Component={Detail}/>
         <Route path="/create" Component={Create}/>
