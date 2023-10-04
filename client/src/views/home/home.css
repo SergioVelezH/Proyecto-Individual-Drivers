@@ -1,11 +1,7 @@
-.home-title{
-    margin-top: 60px;
-    margin-bottom: 40px;
-    font-size: 60px;
-    color: black;
-    font-family:'Times New Roman', Times, serif
+.nav{
+    background-color: rgba(158, 147, 147, 0.7);
+    padding: 30px;
 }
-
 .home{
     display: flex;
     flex-direction: column;

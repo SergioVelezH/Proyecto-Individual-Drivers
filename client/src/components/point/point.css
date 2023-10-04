@@ -1,0 +1,38 @@
+
+/* Contenedor principal */
+.point-container{
+    background-color: rgba(158, 147, 147, 0.95);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Nombre y apellido */
+.name {
+    
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  /* Otras propiedades */
+.info {
+    font-size: 25px;
+    margin: 5px 0;
+  }
+  
+  /* Descripción */
+.description{
+    font-size: 20px;
+    font-weight: normal;
+    margin: 10px 0;
+  }
+  
+  /* Imagen */
+  .imagen {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }

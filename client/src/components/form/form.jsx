@@ -54,43 +54,45 @@ function handleSubmit(event){
 
   return (
     <div className='form-container'>
-      <form>
+      <form className='form-form'>
+        <div className='all-div'>
         <div>
-            <label>Name</label>
-            <input type="name" name='name' placeholder='Name' value={input.value} onChange={handleChange} />
-            <span>{errors.name}</span>
+            <label className='only-label'>Name</label>
+            <input className='only-input' type="name" name='name' placeholder='Name' value={input.value} onChange={handleChange} />
+            <span className='only-span'>{errors.name}</span>
         </div>
         <div>
-            <label>Last Name</label>
-            <input type="lastName" name='lastName' placeholder='Last Name' value={input.value} onChange={handleChange} />
-            <span>{errors.lastName}</span>
+            <label className='only-label'>Last Name</label>
+            <input className='only-input' type="lastName" name='lastName' placeholder='Last Name' value={input.value} onChange={handleChange} />
+            <span className='only-span'>{errors.lastName}</span>
         </div>
         <div>
-            <label>Description</label>
-            <input type="description" name='description' placeholder='Description' value={input.value} onChange={handleChange} />
-            <span>{errors.description}</span>
+            <label className='only-label'>Description</label>
+            <input className='only-input' type="description" name='description' placeholder='Description' value={input.value} onChange={handleChange} />
+            <span className='only-span'>{errors.description}</span>
         </div>
         <div>
-            <label>Image</label>
-            <input type="text" name='image' placeholder='URL' value={input.value} onChange={handleChange} />
-            <span>{errors.image}</span>
+            <label className='only-label'>Image</label>
+            <input className='only-input' type="text" name='image' placeholder='URL' value={input.value} onChange={handleChange} />
+            <span className='only-span'>{errors.image}</span>
         </div>
         <div>
-            <label>Nationality</label>
-            <input type="nationality" name='nationality' placeholder='Nationality' value={input.value} onChange={handleChange} />
-            <span>{errors.nationality}</span>
+            <label className='only-label'>Nationality</label>
+            <input className='only-input' type="nationality" name='nationality' placeholder='Nationality' value={input.value} onChange={handleChange} />
+            <span className='only-span'>{errors.nationality}</span>
         </div>
         <div>
-            <label>Birth Date</label>
-            <input type="birthDate" name='birthDate' placeholder='Birth Date' value={input.value} onChange={handleChange}/>
-            <span>{errors.birthDate}</span>
+            <label className='only-label'>Birth Date</label>
+            <input className='only-input' type="birthDate" name='birthDate' placeholder='Birth Date' value={input.value} onChange={handleChange}/>
+            <span className='only-span'>{errors.birthDate}</span>
+        </div>
         </div>
 
         {errors.name||errors.lastName||errors.description||errors.image||errors.nationality||errors.birthDate 
         ? 
         null :
-        <button type='submit' onClick={handleSubmit}>Submit</button> }
-        {msg.name && <span>{msg.msg}</span>}
+        <button className = "boton-form" type='submit' onClick={handleSubmit}>Submit</button> }
+        {msg.name && <span className='good-span'>{msg.msg}</span>}
       </form>
     </div>
   )

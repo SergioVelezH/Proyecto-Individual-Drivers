@@ -4,7 +4,7 @@
     background-color: rgba(158, 147, 147, 0.7);
     border: 1px solid black;
     border-radius: 5px;
-    padding: 25px;
+    padding: auto;
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translateZ(0);
