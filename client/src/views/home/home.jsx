@@ -12,6 +12,10 @@ function Home() {
   const dispatch = useDispatch();
   const allDrivers = useSelector((state) => state.allDrivers )
   const [searchString,setSearchString] = useState("");
+  const [err,setErr] = useState({
+    good:false,
+    msg:""
+  })
 
   function handleChange(e){
     e.preventDefault();
@@ -20,7 +24,13 @@ function Home() {
 
   function handleSubmit(e){
     e.preventDefault();
-    dispatch(getByName(searchString));
+    const response = dispatch(getByName(searchString));
+      if(!response){
+        setErr({
+          good:true,
+          msg:"No se ha encontrado ningun Driver con ese nombre"
+        })
+      }
   }
 
   useEffect(() => {
@@ -30,7 +40,8 @@ function Home() {
 
   return (
     <div className='home'>
-      <Navbar handleChange={handleChange} handleSubmit={handleSubmit}/>
+      <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
+      {/* {err.good ? <span className='good-h1'>{err.msg}</span> : <Cards allDrivers = {allDrivers}/>} */}
       <Cards allDrivers = {allDrivers}/>
     </div>
   )

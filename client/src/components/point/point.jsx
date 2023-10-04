@@ -6,11 +6,12 @@ function Point({driver}) {
 
   return (
     <div className='point-container'>
-      {name && <><h2 className='name'>{name.forename}</h2><h2 className='name'>{name.surname}</h2></>}
-      <h4 className='info'>{id}</h4>
-      <h4 className='info'>{nationality}</h4>
-      <h4 className='info'>{dob}</h4>
-      <h4 className='info'>{teams}</h4>
+      {/* {name && <><h2 className='name'>{name.forename}</h2><h2 className='name'>{name.surname}</h2></>} */}
+      <h1 className='name'>|{`${name?.forename} ${name?.surname}`}|</h1>
+      <h4 className='info'>NRO: {id}</h4>
+      <h4 className='info'>NATIONALITY: {nationality}</h4>
+      <h4 className='info'>DATE OF BORN: {dob}</h4>
+      <h5 className='info'>TEAMS: {teams}</h5>
       <p className='description'>{description}</p>
       <img className='imagen' src={image?.url} alt="" />
     </div>

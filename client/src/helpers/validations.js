@@ -27,15 +27,15 @@ export function validar(input) {
       }
   
     if (input.description.length < 50){
-        errors.description = "Este campo debe ser mayor a los 50 caracteres";
+        errors.description = "Debe ser mayor a los 50 caracteres";
     }  
 
     if (input.nationality.length > 15){
-        errors.nationality = "Este campo no puede tener mas de 15 caracteres";
+        errors.nationality = "No debe tener mas de 15 caracteres";
     }
     
     if(!regFecha.test(input.birthDate)){
-        errors.birthDate = "Este campo debe ser completado con una fecha";
+        errors.birthDate = "Debe ser completado con una fecha";
     }
 
     return errors;

@@ -1,4 +1,4 @@
-const { getAllDrivers,getDriverById,postNewDriver, getDriverByName } = require("../controllers/driversControllers")
+const { getAllDrivers,getDriverById,postNewDriver, getDriverByName, makeRelationship } = require("../controllers/driversControllers")
 
 
 
@@ -38,11 +38,13 @@ const getDriverByIdHandler = async (req, res) => {
 
 const postNewDriverHandler = async(req, res) => {
 
-    const {name,lastName,description,image,nationality,birthDate} = req.body;
+    const {teamId,name,lastName,description,image,nationality,birthDate} = req.body;
 
     try {
-    const response = await postNewDriver(name,lastName,description,image,nationality,birthDate);
-    res.status(200).json(response);
+        const response = await postNewDriver(name,lastName,description,image,nationality,birthDate);
+        const { ID } = response.dataValues;
+        await makeRelationship(ID,teamId)
+        res.status(200).json(response);
     } catch (error) {
         res.status(400).json({error:error.message})  
     }

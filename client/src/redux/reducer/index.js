@@ -1,4 +1,4 @@
-import { CREATE_NEW_DRIVER, GET_ALL_DRIVERS, GET_BY_NAME, GET_DRIVER_BY_ID} from "../actions";
+import { CREATE_NEW_DRIVER, GET_ALL_DRIVERS, GET_ALL_TEAMS, GET_BY_NAME, GET_DRIVER_BY_ID} from "../actions";
 
 let initialState = {allDrivers: [],stateCopy:[], allEscuderias: [], driverId: []};
 
@@ -24,8 +24,13 @@ function rootReducer(state = initialState, action){
             return{
                 ...state,
                 driverId:action.payload,
-            }                    
-            
+            }
+        case GET_ALL_TEAMS:
+            return{
+                ...state,
+                allDrivers:action.payload,
+                }                        
+        
         default:
             return state;
     }

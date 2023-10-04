@@ -3,6 +3,7 @@ const { Escuderia } = require("../db");
 
 
 
+const teamsSet = new Set(); // Conjunto para llevar un registro de equipos agregados
 module.exports = getTeams = async () => {
     
     // const response = (await axios.get("http://localhost:5000/drivers/")).data;
@@ -37,7 +38,6 @@ module.exports = getTeams = async () => {
     // return 'Proceso completado';
 
     const response = (await axios.get("http://localhost:5000/drivers")).data;
-    const teamsSet = new Set(); // Conjunto para llevar un registro de equipos agregados
 
 for (const driver of response) {
   if (driver.teams) {
@@ -56,10 +56,12 @@ for (const driver of response) {
     }
   }
 }
+const arr = await Escuderia.findAll();
 
 
-return 'Proceso completado';
+return arr;
 
+// return arr = [...teamsSet]
 
 
 };

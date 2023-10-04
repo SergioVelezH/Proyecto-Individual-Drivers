@@ -65,9 +65,15 @@ const getDriverById = async(id,source) => {
     return driver;         
 };
 
-
+const makeRelationship = async (driverId, teamId) => {
+    const driver = await Driver.findByPk(driverId);
+    const team = await Escuderia.findByPk(teamId);
+    return driver.addEscuderia(team);
+};
 
 const postNewDriver = async (name,lastName,description,image,nationality,birthDate) => {
+
+    
 
     return await Driver.create({name,lastName,description,image,nationality,birthDate});
    
@@ -78,5 +84,6 @@ module.exports = {
     getAllDrivers,
     getDriverById,
     postNewDriver,
-    getDriverByName
+    getDriverByName,
+    makeRelationship
 }

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(158, 147, 147, 0.7);
-    border: 1px solid black;
+    border: 1px solid rgb(255, 0, 0);
     border-radius: 5px;
     padding: auto;
     -moz-osx-font-smoothing: grayscale;
@@ -18,5 +18,11 @@
 .img{
     width: 250px;
     height: 300px;
+    object-fit: cover;
+}
+
+.teams {
+    width: auto;
+    font-weight: bold;
     object-fit: cover;
 }

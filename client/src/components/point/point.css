@@ -12,8 +12,7 @@
   
   /* Nombre y apellido */
 .name {
-    
-    font-size: 24px;
+    padding: 40px;
     margin: 10px 0;
   }
   
@@ -32,7 +31,7 @@
   
   /* Imagen */
   .imagen {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px;
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
   }

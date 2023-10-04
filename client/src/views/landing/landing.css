@@ -1,12 +1,14 @@
 body{
-    background-image: url("https://wallpaper.dog/large/20502163.jpg");
+    background-image: url("https://wallpaperaccess.com/full/6122397.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 
+/* https://wallpaper.dog/large/20502163.jpg */
+
 .global{
-    padding: 50px;
+    padding: 70px;
     background-color: rgba(158, 147, 147, 0.7) ;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -22,5 +24,6 @@ body{
 }
 
 .boton:hover {
-    background-color: #61666b;
+    /* background-color: #61666b; */
+    background-color: red;
   }

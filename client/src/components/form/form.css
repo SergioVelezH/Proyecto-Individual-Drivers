@@ -17,6 +17,7 @@
   }
   
   .only-label {
+    margin: 10px;
     size: 10px;
     font-weight: bold;
     padding: 5px;
@@ -30,6 +31,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin: 10px;
   }
 
   .only-input[type="description"]{

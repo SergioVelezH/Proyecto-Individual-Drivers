@@ -8,11 +8,9 @@ function Navbar({handleChange, handleSubmit}) {
     <div className='search-box'>
       <form className='search-form'  onChange={handleChange}>
         <input className='search-input' placeholder='Search...' type='search' />
-        <button className="boton-search" type='submit' onClick={handleSubmit} >
-          Search
-        </button>
+        <button className="boton-search" type='submit' onClick={handleSubmit} >🔍</button>
         <Link to={"/create"}>
-        <button className='boton-create'>Create</button>
+        <button className='boton-create'>Create Driver</button>
         </Link>
       </form>
     </div>

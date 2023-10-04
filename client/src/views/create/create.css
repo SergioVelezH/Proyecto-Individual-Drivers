@@ -1,4 +1,5 @@
 .title{
-    color: black;
-    
+    color: rgb(255, 255, 255);
+    background-color: rgba(158, 147, 147, 0.7);
+    border-radius: 5px;
 }

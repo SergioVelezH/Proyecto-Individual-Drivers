@@ -1,19 +1,21 @@
-import { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useState,useEffect } from 'react';
+import { useDispatch,useSelector } from "react-redux";
 
 import { validar } from '../../helpers/validations';
 import './form.css'
-import { createNewDriver } from '../../redux/actions';
+import { createNewDriver,getAllTeams } from '../../redux/actions';
 
 function Form() {
     const dispatch = useDispatch();
+    const allTeams = useSelector((state) => state.allDrivers);
     const [input, setInput] = useState({
-       name:"",
-       lastName:"",
-       description:"",
-       image:"",
-       nationality:"",
-       birthDate: "",
+        teamId:"",
+        name:"",
+        lastName:"",
+        description:"",
+        image:"",
+        nationality:"",
+        birthDate: "",
     })
 
     const [errors, setErrors] = useState({
@@ -50,7 +52,12 @@ function handleSubmit(event){
         }
     };
 
+useEffect(() => {
+    dispatch(getAllTeams())
+},[dispatch])
 
+
+console.log(allTeams)
 
   return (
     <div className='form-container'>
@@ -85,6 +92,16 @@ function handleSubmit(event){
             <label className='only-label'>Birth Date</label>
             <input className='only-input' type="birthDate" name='birthDate' placeholder='Birth Date' value={input.value} onChange={handleChange}/>
             <span className='only-span'>{errors.birthDate}</span>
+        </div>
+        <div>
+            <select name='teamId' value={input.teamId} onChange={handleChange} id="">
+            {/* {allTeams?.map((team) => <option value={team?.ID} >{team?.name}</option>)} */}
+            {Array.isArray(allTeams) && allTeams.length > 0 ? 
+            (allTeams.map((team) => (<option key={team.ID} value={team.ID}>{team.name}</option>))
+    ) : (
+      <option value="">No teams available</option>
+    )}
+            </select>
         </div>
         </div>
 
