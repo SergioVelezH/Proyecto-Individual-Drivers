@@ -7,7 +7,7 @@ import { createNewDriver,getAllTeams } from '../../redux/actions';
 
 function Form() {
     const dispatch = useDispatch();
-    const allTeams = useSelector((state) => state.allDrivers);
+    const allTeams = useSelector((state) => state.allEscuderias);
     const [input, setInput] = useState({
         teamId:"",
         name:"",

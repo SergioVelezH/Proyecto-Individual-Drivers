@@ -5,12 +5,13 @@ import { useDispatch,useSelector } from "react-redux";
 import './home.css'
 import Navbar from '../../components/navbar/navbar';
 import Cards from '../../components/cards/cards';
-import { getAllDrivers, getByName } from '../../redux/actions';
+import { getAllDrivers, getAllTeams, getByName } from '../../redux/actions';
 
 function Home() {
 
   const dispatch = useDispatch();
-  const allDrivers = useSelector((state) => state.allDrivers )
+  const allTeams = useSelector((state) => state.allEscuderias);
+  const allDrivers = useSelector((state) => state.allDrivers);
   const [searchString,setSearchString] = useState("");
   const [err,setErr] = useState({
     good:false,
@@ -36,11 +37,16 @@ function Home() {
   useEffect(() => {
     dispatch(getAllDrivers())
   },[dispatch])
+
+  useEffect(() => {
+    dispatch(getAllTeams())
+  },[dispatch])
+  
   
 
   return (
     <div className='home'>
-      <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
+      <Navbar handleChange={handleChange} handleSubmit={handleSubmit} allTeams = {allTeams}/>
       {/* {err.good ? <span className='good-h1'>{err.msg}</span> : <Cards allDrivers = {allDrivers}/>} */}
       <Cards allDrivers = {allDrivers}/>
     </div>

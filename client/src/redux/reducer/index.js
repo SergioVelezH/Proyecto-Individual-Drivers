@@ -1,4 +1,4 @@
-import { CREATE_NEW_DRIVER, GET_ALL_DRIVERS, GET_ALL_TEAMS, GET_BY_NAME, GET_DRIVER_BY_ID} from "../actions";
+import { CREATE_NEW_DRIVER, FILTER_DRIVER_ORIGIN, FILTER_DRIVER_TEAM, GET_ALL_DRIVERS, GET_ALL_TEAMS, GET_BY_NAME, GET_DRIVER_BY_ID} from "../actions";
 
 let initialState = {allDrivers: [],stateCopy:[], allEscuderias: [], driverId: []};
 
@@ -28,12 +28,81 @@ function rootReducer(state = initialState, action){
         case GET_ALL_TEAMS:
             return{
                 ...state,
-                allDrivers:action.payload,
+                allEscuderias:action.payload,
                 }                        
-        
-        default:
-            return state;
-    }
-};
+        case FILTER_DRIVER_ORIGIN:
+            switch(action.payload){
+                case "BDD":
+                    return{
+                            ...state,
+                            stateCopy:state.allDrivers,
+                            allDrivers:state.stateCopy.filter((driver) => isNaN(Number(driver.id))),
+                            
+                        }
+                case "API":
+                    return{
+                            ...state,
+                            stateCopy:state.allDrivers,
+                            allDrivers:state.stateCopy.filter((driver) => !isNaN(Number(driver.id))),
+                           
+                        }
+                        default:
+                            return{
+                                ...state
+                            }
+                    
+                    }
+        case FILTER_DRIVER_TEAM:
+            return{
+                ...state,
+                stateCopy:state.allDrivers,
+                allDrivers:state.stateCopy.filter((driver) => driver.teams.split(",") === action.payload )
 
-export default rootReducer;
+            }
+            
+            
+
+
+            default:
+                return state;
+            }
+        };
+        
+        export default rootReducer;
+        
+        
+        
+        
+        // switch(action.payload){
+            //     case "API":
+            //         return{
+                //             ...state,
+                //             allDrivers:state.allDrivers.filter((driver) => !isNaN(Number(driver.id)))
+                //         }
+                //     case "BDD":
+                //         return{
+                    //             ...state,
+                    //             allDrivers:state.allDrivers.filter((driver) => isNaN(Number(driver.id)))
+                    //         }
+                    //     default:
+                    
+                    // }
+
+
+
+                    // let filteredDrivers;
+                    // switch (action.payload) {
+                    //     case "API":
+                    //         filteredDrivers = state.allDrivers.filter((driver) => (!isNaN(Number(driver.id))));
+                    //             break;
+                    //     case "BDD":
+                    //         filteredDrivers = state.allDrivers.filter((driver) => isNaN(Number(driver.id)));
+                    //             break;
+                    //     default:
+                    //         filteredDrivers = state.allDrivers;
+                    // }
+            
+                    //     return {
+                    //         ...state,
+                    //         copyDrivers: filteredDrivers, // Guarda la copia filtrada en copyDrivers
+                    // };
