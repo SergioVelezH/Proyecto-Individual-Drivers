@@ -10,7 +10,7 @@ function Detail() {
   
   const dispatch = useDispatch();
   const driver = useSelector((state) => state.driverId);
-  const {id} = useParams();
+  const { id } = useParams();
   console.log(driver);
 
   useEffect(() => {
@@ -20,7 +20,9 @@ function Detail() {
 
   return (
     <div>
-      <Point driver = {driver}/>
+      {Array.isArray(driver) ? driver?.map((driver) => <Point driver={driver} />) : <Point driver={driver}/>}
+      {/* {driver?.map((driver) => <Point driver={driver}/>)} */}
+      {/* <Point driver = {driver}/> */}
     </div>
   )
 }

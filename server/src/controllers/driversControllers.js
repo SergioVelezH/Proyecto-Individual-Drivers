@@ -54,14 +54,30 @@ const getDriverByName = async (name) => {
 };
 
 
-
 const getDriverById = async(id,source) => {
-    const driver = 
-        source === "api"
-            ? (await axios.get(`http://localhost:5000/drivers/${id}`)).data 
-            : await Driver.findByPk(id);
+    let array = [];
+    // const driver = 
+    //     source === "api"
+    //         ? infoCleaner(array.push((await axios.get(`http://localhost:5000/drivers/${id}`)).data))
+    //         : await Driver.findByPk(id);
 
-    // const driver = infoCleaner(info);
+    // if(source === "api"){
+    //    const respuesta = (await axios.get(`http://localhost:5000/drivers/${id}`)).data;
+    //    driver = array.push(respuesta)
+    // }else{
+    //     await Driver.findByPk(id);
+    // }
+    let driver;
+
+    if (source === "api") {
+      const respuesta = (await axios.get(`http://localhost:5000/drivers/${id}`)).data;
+      array.push(respuesta);
+      driver = infoCleaner(array);
+    } else {
+      driver = await Driver.findByPk(id);
+    }
+
+    
     return driver;         
 };
 

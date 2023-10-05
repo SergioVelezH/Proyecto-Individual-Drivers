@@ -42,8 +42,8 @@ const postNewDriverHandler = async(req, res) => {
 
     try {
         const response = await postNewDriver(name,lastName,description,image,nationality,birthDate);
-        const { ID } = response.dataValues;
-        await makeRelationship(ID,teamId)
+        const { id } = response.dataValues;
+        await makeRelationship(id,teamId)
         res.status(200).json(response);
     } catch (error) {
         res.status(400).json({error:error.message})  

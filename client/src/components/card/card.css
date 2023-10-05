@@ -22,6 +22,7 @@
 }
 
 .teams {
+    gap: 1px;
     width: auto;
     font-weight: bold;
     object-fit: cover;

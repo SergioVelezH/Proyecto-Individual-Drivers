@@ -43,7 +43,7 @@ export function createNewDriver(body){
 
 export function getDriverById(id){
     return async function (dispatch){
-        const response = await axios(`http://localhost:3001/drivers/${id}`);
+        const response = (await axios(`http://localhost:3001/drivers/${id}`));
     return dispatch({
         type:"GET_DRIVER_BY_ID",
         payload:response.data

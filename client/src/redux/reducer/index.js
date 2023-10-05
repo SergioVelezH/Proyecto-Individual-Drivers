@@ -1,4 +1,5 @@
-import { CREATE_NEW_DRIVER, FILTER_DRIVER_ORIGIN, FILTER_DRIVER_TEAM, GET_ALL_DRIVERS, GET_ALL_TEAMS, GET_BY_NAME, GET_DRIVER_BY_ID} from "../actions";
+import { CREATE_NEW_DRIVER, FILTER_DRIVER_ORIGIN, FILTER_DRIVER_TEAM, GET_ALL_DRIVERS, GET_ALL_TEAMS, GET_BY_NAME, GET_DRIVER_BY_ID, ORDER_DRIVERS_ALFA, ORDER_DRIVERS_BORN} from "../actions";
+import { calculateAge } from "../../helpers/age";
 
 let initialState = {allDrivers: [],stateCopy:[], allEscuderias: [], driverId: []};
 
@@ -53,16 +54,69 @@ function rootReducer(state = initialState, action){
                     
                     }
         case FILTER_DRIVER_TEAM:
-            return{
-                ...state,
-                stateCopy:state.allDrivers,
-                allDrivers:state.stateCopy.filter((driver) => driver.teams.split(",") === action.payload )
+            const trimmedDrivers = state.stateCopy.map(driver => {
+                if (driver.teams) {
+                  return {
+                    ...driver,
+                    teams: driver.teams.split(",").map(team => team.trim())
+                  };
+                }
+                return driver;
+              });
+            
+                return {
+                    ...state,
+                    allDrivers: trimmedDrivers.filter(driver => driver.teams && driver.teams.includes(action.payload))
+              };
+        case ORDER_DRIVERS_ALFA:
+            switch(action.payload){
+                case "AZ":
+                    return{
+                        ...state,
+                        stateCopy:state.allDrivers,
+                        allDrivers: state.stateCopy.sort((a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' }))
+                    }
+                case "ZA":
+                    return{
+                        ...state,
+                        stateCopy:state.allDrivers,
+                        allDrivers: state.stateCopy.sort((a, b) => b.name.localeCompare(a.name, 'es', { sensitivity: 'base' }))
+                    }    
 
             }
+        case ORDER_DRIVERS_BORN:
+            switch(action.payload){
+                case "YOUNGEST":
+                    return{
+                        ...state,
+                        stateCopy:state.allDrivers,
+                        allDrivers: state.stateCopy.sort((a, b) => {
+                            const dateA = new Date(a.birthDate);
+                            const dateB = new Date(b.birthDate);
+                        
+                            const ageA = calculateAge(dateA);
+                            const ageB = calculateAge(dateB);
+                        
+                            return ageA - ageB;
+                      })
+                    }
+                case "OLDER":
+                    return{
+                        ...state,
+                        stateCopy:state.allDrivers,
+                        allDrivers: state.stateCopy.sort((a, b) => {
+                            const dateA = new Date(a.birthDate);
+                            const dateB = new Date(b.birthDate);
+                        
+                            const ageA = calculateAge(dateA);
+                            const ageB = calculateAge(dateB);
+                        
+                            return ageB - ageA;
+                      })
+                    }
+                }        
             
             
-
-
             default:
                 return state;
             }
@@ -71,6 +125,12 @@ function rootReducer(state = initialState, action){
         export default rootReducer;
         
         
+        // return{
+        //     ...state,
+        //     stateCopy:state.allDrivers,
+        //     allDrivers:state.stateCopy.filter((driver) => driver.teams.split(",").join("") === action.payload )
+
+        // }
         
         
         // switch(action.payload){

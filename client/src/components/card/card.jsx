@@ -7,7 +7,7 @@ function Card({driver}) {
 
   return (
     <div className='card-container'>
-      <h1>{driver?.name}</h1>
+      <h1>{driver?.name} {driver.lastName? driver.lastName:null}</h1>
       <p className="teams">{driver?.teams}</p>
       <Link to={`/home/${driver?.id}`}>
       <img className='img'src={driver?.image} alt={driver?.name} />    
