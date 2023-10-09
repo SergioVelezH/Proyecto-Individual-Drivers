@@ -18,6 +18,8 @@ function Home() {
     msg:""
   })
 
+  // const [isLoading, setIsLoading] = useState(false);
+
   function handleChange(e){
     e.preventDefault();
     setSearchString(e.target.value);
@@ -41,16 +43,16 @@ function Home() {
   useEffect(() => {
     dispatch(getAllTeams())
   },[dispatch])
-  
-  
 
-  return (
+  
+return(
+!allDrivers.length ? (<div><h1>CARGANDO</h1></div>) : (
     <div className='home'>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} allTeams = {allTeams}/>
       {/* {err.good ? <span className='good-h1'>{err.msg}</span> : <Cards allDrivers = {allDrivers}/>} */}
       <Cards allDrivers = {allDrivers}/>
     </div>
+    )
   )
 }
-
 export default Home;

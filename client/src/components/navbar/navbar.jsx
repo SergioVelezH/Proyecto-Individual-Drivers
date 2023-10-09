@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState,useEffect } from 'react';
+
 import { useDispatch,useSelector } from "react-redux";
 import './navbar.css'
 import { filterDriverOrigin, filterDriverTeam, getAllTeams, orderDriversAlfa, orderDriversBorn } from "../../redux/actions";
@@ -7,6 +7,8 @@ import { filterDriverOrigin, filterDriverTeam, getAllTeams, orderDriversAlfa, or
 function Navbar({handleChange, handleSubmit,allTeams}) {
 const dispatch = useDispatch();
 const allDrivers = useSelector(state => state.allDrivers)
+
+
 
   const handleFilterOrigin =  (event) => {
   dispatch(filterDriverOrigin(event.target.value))    

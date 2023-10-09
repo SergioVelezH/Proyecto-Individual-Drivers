@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import './detail.css'
-import { getDriverById } from '../../redux/actions';
+import { getAllTeams, getDriverById } from '../../redux/actions';
 import Point from '../../components/point/point';
 
 function Detail() {
@@ -16,6 +16,10 @@ function Detail() {
   useEffect(() => {
     dispatch(getDriverById(id))
   },[id])
+
+  useEffect(() => {
+    dispatch(getAllTeams)
+  },[])
  
 
   return (

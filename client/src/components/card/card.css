@@ -1,9 +1,9 @@
 .card-container {
     display: flex;
     flex-direction: column;
-    background-color: rgba(158, 147, 147, 0.7);
-    border: 1px solid rgb(255, 0, 0);
+    background-color: rgba(158, 147, 147, 0.95);
     border-radius: 5px;
+    border: 3px solid black;
     padding: auto;
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
@@ -17,13 +17,24 @@
 
 .img{
     width: 250px;
-    height: 300px;
+    height: 350px;
     object-fit: cover;
+    padding: 14px;
+    
 }
 
-.teams {
-    gap: 1px;
-    width: auto;
-    font-weight: bold;
-    object-fit: cover;
-}
+
+  .card-name {
+    color: #333; 
+    
+  }
+
+
+
+  .all-carac {
+    background-color: rgba(67, 63, 63, 0.3); /* Un fondo ligeramente transparente */
+    padding: 16px;
+    border-radius:5px; 
+  }
+
+  

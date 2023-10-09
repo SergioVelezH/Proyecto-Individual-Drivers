@@ -5,7 +5,11 @@
     gap: 15px;
 }
 
-
+.pag{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
 
 .pag-button{
     margin: 10px;

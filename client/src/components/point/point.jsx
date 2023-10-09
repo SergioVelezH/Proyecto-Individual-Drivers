@@ -2,7 +2,9 @@ import './point.css'
 
 
 function Point({driver}) {
-    const {id,name,lastName,nationality,image,description,birthDate,teams} = driver;
+    const {id,name,lastName,nationality,image,description,birthDate,teams,escuderia} = driver;
+    console.log(driver);
+
 
   return (
     <div className='point-container'>
@@ -11,7 +13,7 @@ function Point({driver}) {
       <h4 className='info'>ID:{id}</h4>
       <h4 className='info'>NATIONALITY: {nationality}</h4>
       <h4 className='info'>DATE OF BORN: {birthDate}</h4>
-      <h5 className='info'>TEAMS: {teams}</h5>
+      <h5 className='info'>TEAMS: { escuderia && escuderia.length > 0 ? escuderia[0].name : teams}</h5>
       <p className='description'>{description}</p>
       <img className='imagen' src={image} alt="" />
     </div>

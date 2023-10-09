@@ -11,7 +11,7 @@ function Cards({allDrivers}) {
   const [porPagina, setPorPagina] = useState(9);
   const maxPag = driverList.length / porPagina;
 
-  console.log(maxPag);
+  console.log(allDrivers);
   
 
   return (

@@ -5,7 +5,13 @@ body{
     background-size: cover;
 }
 
+/* body{
+    background: rgb(98,23,8);
+background: radial-gradient(circle, rgba(98,23,8,1) 0%, rgba(34,9,1,1) 100%);
+} */
+
 /* https://wallpaper.dog/large/20502163.jpg */
+
 
 .global{
     padding: 70px;

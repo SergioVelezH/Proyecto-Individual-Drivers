@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Driver,Escuderia } = require("../db");
 const { infoCleaner, addImg } = require("../utils");
-const { Op,sequelize } = require("sequelize");
+const { Op,Sequelize } = require("sequelize");
 
 
 
@@ -11,7 +11,10 @@ const getAllDrivers = async () => {
     const infoApi = infoCleaner(response);
     const driverApi = addImg(infoApi);
     
-    const driverDb = await Driver.findAll();
+    // const driverDb = await Driver.findAll();
+    const driverDb = await Driver.findAll({
+        include: 'escuderia', 
+      });
 
     return[...driverDb, ...driverApi];
     
@@ -42,7 +45,14 @@ const getDriverByName = async (name) => {
 
     const filteredDrivers = response.filter((driver) => driver.name.toLowerCase().includes(name.toLowerCase()));
 
-    const filteredDb = await Driver.findAll({where: { name: name }});
+    // const filteredDb = await Driver.findAll({where: { name: name }});
+    const filteredDb = await Driver.findAll({
+        where: {
+          name: {
+            [Sequelize.Op.iLike]: `%${name}%`, 
+          },
+        },
+      });
     if(filteredDrivers.length === 0 && filteredDb.length === 0){
         throw Error ("No hay ningún driver con este nombre");
     }
@@ -74,7 +84,10 @@ const getDriverById = async(id,source) => {
       array.push(respuesta);
       driver = infoCleaner(array);
     } else {
-      driver = await Driver.findByPk(id);
+    //   driver = await Driver.findByPk(id);
+    driver = await Driver.findByPk(id, {
+        include: 'escuderia',
+      });
     }
 
     

@@ -58,7 +58,8 @@ function rootReducer(state = initialState, action){
                 if (driver.teams) {
                   return {
                     ...driver,
-                    teams: driver.teams.split(",").map(team => team.trim())
+                    teams: driver.teams.split(",").join(", ")
+                    // .map(team => team.trim())
                   };
                 }
                 return driver;
