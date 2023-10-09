@@ -31,3 +31,11 @@
 .pag-button[disabled] {
     cursor: no-drop;
 } 
+
+.input-pag{
+    margin: 10px;
+    padding: 20px;
+    border: none;
+    border-radius: 5px ; 
+    font-size: 16px;
+}

@@ -9,6 +9,7 @@ export const FILTER_DRIVER_TEAM = "FILTER_DRIVER_TEAM";
 export const FILTER_DRIVER_ORIGIN = "FILTER_DRIVER_ORIGIN";
 export const ORDER_DRIVERS_ALFA = "ORDER_DRIVERS_ALFA";
 export const ORDER_DRIVERS_BORN = "ORDER_DRIVERS_BORN";
+export const RESET_STATE = "RESET_STATE";
 
 export function getAllDrivers(){
     return async function (dispatch){
@@ -90,3 +91,5 @@ export const orderDriversBorn = (order)=>{
         payload: order,
     }
 };
+
+

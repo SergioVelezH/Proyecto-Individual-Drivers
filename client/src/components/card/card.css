@@ -32,7 +32,7 @@
 
 
   .all-carac {
-    background-color: rgba(67, 63, 63, 0.3); /* Un fondo ligeramente transparente */
+    background-color: rgba(67, 63, 63, 0.3); 
     padding: 16px;
     border-radius:5px; 
   }

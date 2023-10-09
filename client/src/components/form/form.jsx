@@ -96,7 +96,6 @@ console.log(allTeams)
         </div>
         <div>
             <select name='teamId' value={input.teamId} onChange={handleChange} id="">
-            {/* {allTeams?.map((team) => <option value={team?.ID} >{team?.name}</option>)} */}
             {Array.isArray(allTeams) && allTeams.length > 0 ? 
             (allTeams.map((team) => (<option key={team.ID} value={team.ID}>{team.name}</option>))
     ) : (

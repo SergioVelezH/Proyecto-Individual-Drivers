@@ -1,4 +1,4 @@
-import { CREATE_NEW_DRIVER, FILTER_DRIVER_ORIGIN, FILTER_DRIVER_TEAM, GET_ALL_DRIVERS, GET_ALL_TEAMS, GET_BY_NAME, GET_DRIVER_BY_ID, ORDER_DRIVERS_ALFA, ORDER_DRIVERS_BORN} from "../actions";
+import { CREATE_NEW_DRIVER, FILTER_DRIVER_ORIGIN, FILTER_DRIVER_TEAM, GET_ALL_DRIVERS, GET_ALL_TEAMS, GET_BY_NAME, GET_DRIVER_BY_ID, ORDER_DRIVERS_ALFA, ORDER_DRIVERS_BORN, RESET_STATE} from "../actions";
 import { calculateAge } from "../../helpers/age";
 
 let initialState = {allDrivers: [],stateCopy:[], allEscuderias: [], driverId: []};
@@ -59,7 +59,7 @@ function rootReducer(state = initialState, action){
                   return {
                     ...driver,
                     teams: driver.teams.split(",").join(", ")
-                    // .map(team => team.trim())
+                    
                   };
                 }
                 return driver;
@@ -116,7 +116,7 @@ function rootReducer(state = initialState, action){
                       })
                     }
                 }        
-            
+           
             
             default:
                 return state;
@@ -126,44 +126,4 @@ function rootReducer(state = initialState, action){
         export default rootReducer;
         
         
-        // return{
-        //     ...state,
-        //     stateCopy:state.allDrivers,
-        //     allDrivers:state.stateCopy.filter((driver) => driver.teams.split(",").join("") === action.payload )
-
-        // }
         
-        
-        // switch(action.payload){
-            //     case "API":
-            //         return{
-                //             ...state,
-                //             allDrivers:state.allDrivers.filter((driver) => !isNaN(Number(driver.id)))
-                //         }
-                //     case "BDD":
-                //         return{
-                    //             ...state,
-                    //             allDrivers:state.allDrivers.filter((driver) => isNaN(Number(driver.id)))
-                    //         }
-                    //     default:
-                    
-                    // }
-
-
-
-                    // let filteredDrivers;
-                    // switch (action.payload) {
-                    //     case "API":
-                    //         filteredDrivers = state.allDrivers.filter((driver) => (!isNaN(Number(driver.id))));
-                    //             break;
-                    //     case "BDD":
-                    //         filteredDrivers = state.allDrivers.filter((driver) => isNaN(Number(driver.id)));
-                    //             break;
-                    //     default:
-                    //         filteredDrivers = state.allDrivers;
-                    // }
-            
-                    //     return {
-                    //         ...state,
-                    //         copyDrivers: filteredDrivers, // Guarda la copia filtrada en copyDrivers
-                    // };

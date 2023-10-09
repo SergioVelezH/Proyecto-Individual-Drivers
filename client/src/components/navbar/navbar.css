@@ -1,7 +1,7 @@
 .search-box{
     display: flex;
-    justify-content: center; /* Centrar el contenido horizontalmente */
-    align-items: center; /* Centrar el contenido verticalmente */
+    justify-content: center; 
+    align-items: center; 
     padding: 30px;
 }
 

@@ -1,5 +1,5 @@
 
-/* Contenedor principal */
+
 .point-container{
     background-color: rgba(158, 147, 147, 0.95);
     padding: 20px;
@@ -10,26 +10,26 @@
     margin: 0 auto;
   }
   
-  /* Nombre y apellido */
+  
 .name {
     padding: 40px;
     margin: 10px 0;
   }
   
-  /* Otras propiedades */
+  
 .info {
     font-size: 25px;
     margin: 5px 0;
   }
   
-  /* Descripción */
+  
 .description{
     font-size: 20px;
     font-weight: normal;
     margin: 10px 0;
   }
   
-  /* Imagen */
+  
   .imagen {
     width: 250px;
     height: 300px;

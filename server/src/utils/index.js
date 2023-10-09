@@ -14,7 +14,7 @@ const infoCleaner = (arr) => {
     })
 };
 
-// name:`${user.name.forename} ${user.name.surname}`
+
 
 
 

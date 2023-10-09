@@ -25,8 +25,6 @@ function Detail() {
   return (
     <div>
       {Array.isArray(driver) ? driver?.map((driver) => <Point driver={driver} />) : <Point driver={driver}/>}
-      {/* {driver?.map((driver) => <Point driver={driver}/>)} */}
-      {/* <Point driver = {driver}/> */}
     </div>
   )
 }

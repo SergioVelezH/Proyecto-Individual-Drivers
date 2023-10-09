@@ -18,7 +18,6 @@ function Home() {
     msg:""
   })
 
-  // const [isLoading, setIsLoading] = useState(false);
 
   function handleChange(e){
     e.preventDefault();
@@ -27,13 +26,8 @@ function Home() {
 
   function handleSubmit(e){
     e.preventDefault();
-    const response = dispatch(getByName(searchString));
-      if(!response){
-        setErr({
-          good:true,
-          msg:"No se ha encontrado ningun Driver con ese nombre"
-        })
-      }
+    dispatch(getByName(searchString));
+      
   }
 
   useEffect(() => {
@@ -49,7 +43,6 @@ return(
 !allDrivers.length ? (<div><h1>CARGANDO</h1></div>) : (
     <div className='home'>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} allTeams = {allTeams}/>
-      {/* {err.good ? <span className='good-h1'>{err.msg}</span> : <Cards allDrivers = {allDrivers}/>} */}
       <Cards allDrivers = {allDrivers}/>
     </div>
     )

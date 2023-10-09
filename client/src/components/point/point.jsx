@@ -8,7 +8,6 @@ function Point({driver}) {
 
   return (
     <div className='point-container'>
-      {/* <h1 className='name'>|{`${name?.forename} ${name?.surname}`}|</h1> */}
       <h1>{name} {lastName?lastName:null}</h1>
       <h4 className='info'>ID:{id}</h4>
       <h4 className='info'>NATIONALITY: {nationality}</h4>
@@ -23,4 +22,3 @@ function Point({driver}) {
 export default Point;
 
 
-{/* {name && <><h2 className='name'>{name.forename}</h2><h2 className='name'>{name.surname}</h2></>} */}
